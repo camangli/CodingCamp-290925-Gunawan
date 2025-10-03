@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+input,
+select {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 0;
+    padding: 5px 0px;
+    border-radius: 5px;
+}
+
+.priority-low {
+    color: green;
+}
+
+.priority-medium {
+    color: orange;
+}
+
+.priority-high {
+    color: red;
+    font-weight: bold;
+}
+
+.overdue {
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <div
+      class="container max-w-[600px] mx-auto p-5 border rounded mt-10 border-slate-400"
+    >
+      <h1 class="text-4xl font-bold mb-5 text-center">Todo List</h1>
+
+      <!-- Input Todo -->
+      <form class="flex flex-col gap-4 mb-4 w-full" onsubmit="return false">
+        <div class="flex flex-col gap-2 w-full">
+          <label class="text-xs text-slate-500" for="todoInput">Todo</label>
+          <textarea
+            id="todoInput"
+            placeholder="Apa yang perlu dicatat?"
+            class="p-3 border border-slate-400 rounded w-full resize-none"
+            rows="2"
+          ></textarea>
+        </div>
+        <div class="flex gap-4 w-full">
+          <div class="flex flex-col flex-1">
+            <label class="text-xs text-slate-500" for="todoDate"
+              >Deadline</label
+            >
+            <input
+              type="date"
+              id="todoDate"
+              class="p-3 h-10 border rounded w-full"
+            />
+          </div>
+          <div class="flex flex-col flex-1">
+            <label class="text-xs text-slate-500" for="todoPriority"
+              >Prioritas</label
+            >
+            <select id="todoPriority" class="p-3 h-10 border rounded w-full">
+              <option value="low">Rendah</option>
+              <option value="medium">Sedang</option>
+              <option value="high">Tinggi</option>
+            </select>
+          </div>
+        </div>
+        <button
+          class="flex p-2 w-full justify-center items-center bg-green-500 text-white rounded hover:bg-green-600 mt-2"
+          onclick="addTodo()"
+        >
+          <span class="material-symbols-outlined">add</span> TAMBAH
+        </button>
+      </form>
+      <div class="flex flex-wrap gap-4 mb-4">
+        <!-- Filter -->
+        <div class="flex flex-1 flex-col">
+          <label class="text-xs text-slate-500" for="filter">Filter</label>
+          <select id="filter" onchange="renderTodos()" class="p-5 h-10 rounded">
+            <option value="all">Semua</option>
+            <option value="low">Prioritas Rendah</option>
+            <option value="medium">Prioritas Sedang</option>
+            <option value="high">Prioritas Tinggi</option>
+            <option value="overdue">Sudah Lewat Deadline</option>
+            <option value="upcoming">Belum Lewat Deadline</option>
+          </select>
+        </div>
+
+        <!-- Sortir -->
+        <div class="flex flex-1 flex-col">
+          <label class="text-xs text-slate-500" for="short">Sortir</label>
+          <select
+            id="sort"
+            onchange="renderTodos()"
+            class="p-5 h-10 border rounded flex-grow"
+          >
+            <option value="none">Tanpa Urutan</option>
+            <option value="asc">Tanggal Terdekat</option>
+            <option value="desc">Tanggal Terjauh</option>
+          </select>
+        </div>
+      </div>
+
+      <ul id="todoList"></ul>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
